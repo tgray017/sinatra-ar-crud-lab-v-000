@@ -11,7 +11,15 @@ class ApplicationController < Sinatra::Base
   get '/' do
   end
   
+  post '/articles' do
+    @article = Article.new(params)
+    @article.save
+    erb :index
+  end
+  
   get '/articles/new' do
     erb :new
   end
+  
+
 end
